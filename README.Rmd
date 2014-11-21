@@ -47,6 +47,6 @@ loc_split(tex_doc, tail(grep("\\\\section\\{|print\\{", tex_doc), -1))
 ```
 
 ```{r, inlude=FALSE, eval=FALSE, echo=FALSE}
-knitr::purl("README.Rmd", "example.R", documentation = 0)
+knitr::purl("README.Rmd", "R Code for Example.R", documentation = 0)
 knitr::knit2html("README.Rmd", "README.md")
 ```
