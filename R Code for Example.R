@@ -1,15 +1,9 @@
-#Tex Breaking Example
 
-This repo demonstrates a real life usage of the **qdapTools** function `loc_split`.  We create a fake .tex document and then use `loc_split` to break into sections.
 
-## Load Packages
-
-```{r, message=FALSE}
 library(qdap); library(qdapTools); library(knitr)
-```
 
-## Create Data Set
-```{r, comment=NA}
+
+
 headers <- sprintf("\\section{%s}", 
     unlist(TC(random_sent(3, 5, range=c(0, 1), 
     endmark.fun = function() ""))))
@@ -38,15 +32,14 @@ tex_doc <- Map(function(w, x, y, z) c(w, x, y, z), "", subheaders, "", content) 
     unlist()
 
 tex_doc
-```
 
-## Split by Sections
-```{r, comment=NA}
+
+
 loc_split(tex_doc, tail(grep("section\\{|print\\{", tex_doc), -1))
 loc_split(tex_doc, tail(grep("\\\\section\\{|print\\{", tex_doc), -1))
-```
 
-```{r, inlude=FALSE, eval=FALSE, echo=FALSE}
-knitr::purl("README.Rmd", "example.R", documentation = 0)
-knitr::knit2html("README.Rmd", "README.md")
-```
+
+
+## knitr::purl("README.Rmd", "example.R", documentation = 0)
+## knitr::knit2html("README.Rmd", "README.md")
+
